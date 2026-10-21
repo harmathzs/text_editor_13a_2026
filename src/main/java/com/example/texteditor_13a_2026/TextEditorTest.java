@@ -33,6 +33,12 @@ public class TextEditorTest {
     }
 
     @Test
+    public void testOpen() throws IOException {
+        TextEditorController controller = new TextEditorController();
+        controller.handleOpenMenuClick(null);
+    }
+
+    @Test
     public void testExit() {
         TextEditorController controller = new TextEditorController();
         controller.handleExitMenuClick(null);

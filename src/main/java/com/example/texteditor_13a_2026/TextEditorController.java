@@ -29,8 +29,9 @@ public class TextEditorController {
         FileChooser openDialog = new FileChooser();
         openDialog.setTitle("Open file ...");
         openDialog.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("All files", "*.*"));
-        File file = openDialog.showOpenDialog(TextEditorApplication.scene.getWindow());
-        if (file.exists()) {
+        File file = null;
+        if (!isRunningTest) file = openDialog.showOpenDialog(TextEditorApplication.scene.getWindow());
+        if (!isRunningTest && file.exists()) {
             filename = file.getName();
             filepath = file.getPath();
             System.out.println("filepath: "+filepath);
