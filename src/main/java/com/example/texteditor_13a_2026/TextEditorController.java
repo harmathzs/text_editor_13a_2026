@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class TextEditorController {
     @FXML public TextArea textArea;
@@ -42,8 +43,8 @@ public class TextEditorController {
         }
     }
 
-    public void handleSaveMenuClick(ActionEvent actionEvent) {
-
+    public void handleSaveMenuClick(ActionEvent actionEvent) throws IOException {
+        if (!isRunningTest) Files.writeString(Path.of(filepath), textArea.getText());
     }
 
     public void handleSaveAsMenuClick(ActionEvent actionEvent) {

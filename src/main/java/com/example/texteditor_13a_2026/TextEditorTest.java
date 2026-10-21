@@ -39,6 +39,12 @@ public class TextEditorTest {
     }
 
     @Test
+    public void testSave() throws IOException {
+        TextEditorController controller = new TextEditorController();
+        controller.handleSaveMenuClick(null);
+    }
+
+    @Test
     public void testExit() {
         TextEditorController controller = new TextEditorController();
         controller.handleExitMenuClick(null);
