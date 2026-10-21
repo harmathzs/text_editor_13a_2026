@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.texteditor_13a_2026/com.example.texteditor_13a_2026.HelloApplication
+                                com.example.texteditor_13a_2026/com.example.texteditor_13a_2026.TextEditorApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
