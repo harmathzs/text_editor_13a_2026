@@ -9,7 +9,8 @@ public class TextEditorController {
     @FXML public TextArea textArea;
 
     public void handleNewMenuClick(ActionEvent actionEvent) {
-
+        // TODO - unsaved previous text?
+        textArea.setText("");
     }
 
     public void handleOpenMenuClick(ActionEvent actionEvent) {
