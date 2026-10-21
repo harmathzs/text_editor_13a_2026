@@ -1,6 +1,7 @@
 module com.example.texteditor_13a_2026 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires junit;
 
 
     opens com.example.texteditor_13a_2026 to javafx.fxml;
