@@ -44,11 +44,24 @@ public class TextEditorController {
     }
 
     public void handleSaveMenuClick(ActionEvent actionEvent) throws IOException {
+        // TODO - disable/enable save menu item if filepath is/not null
         if (!isRunningTest) Files.writeString(Path.of(filepath), textArea.getText());
     }
 
-    public void handleSaveAsMenuClick(ActionEvent actionEvent) {
+    public void handleSaveAsMenuClick(ActionEvent actionEvent) throws IOException {
+        FileChooser saveDialog = new FileChooser();
+        saveDialog.setTitle("Save as ...");
+        saveDialog.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("All files", "*.*"));
+        File file = null;
+        if (!isRunningTest) file = saveDialog.showSaveDialog(TextEditorApplication.scene.getWindow());
+        if (!isRunningTest) {
+            filename = file.getName();
+            filepath = file.getPath();
+            System.out.println("filepath: "+filepath);
+            System.out.println("filename: "+filename);
 
+            Files.writeString(Path.of(filepath), textArea.getText());
+        }
     }
 
     public void handleExitMenuClick(ActionEvent actionEvent) {
