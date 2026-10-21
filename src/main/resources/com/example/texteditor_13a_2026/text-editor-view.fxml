@@ -11,7 +11,7 @@
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNewMenuClick" text="New" />
                   <MenuItem mnemonicParsing="false" onAction="#handleOpenMenuClick" text="Open ... " />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSaveMenuClick" text="Save" />
+                  <MenuItem mnemonicParsing="false" id="saveMenuItem" fx:id="saveMenuItem" onAction="#handleSaveMenuClick" text="Save" />
                   <MenuItem mnemonicParsing="false" onAction="#handleSaveAsMenuClick" text="Save as ..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#handleExitMenuClick" text="Close" />

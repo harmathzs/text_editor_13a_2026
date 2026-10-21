@@ -3,6 +3,7 @@ package com.example.texteditor_13a_2026;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
@@ -15,11 +16,14 @@ import java.nio.file.Path;
 
 public class TextEditorController {
     @FXML public TextArea textArea;
+    @FXML public MenuItem saveMenuItem;
 
     public String filename;
     public String filepath;
 
     public static boolean isRunningTest = false;
+
+
 
     public void handleNewMenuClick(ActionEvent actionEvent) {
         // TODO - unsaved previous text?
