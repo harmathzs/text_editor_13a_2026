@@ -8,16 +8,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TextEditorApplication extends Application {
+    public static boolean isRunningTest = false;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TextEditorApplication.class.getResource("text-editor-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("My Text Editor v0.1 by Zsolt Harmath");
-        stage.setScene(scene);
-        stage.show();
+        FXMLLoader fxmlLoader = null;
+        if (!isRunningTest) fxmlLoader = new FXMLLoader(TextEditorApplication.class.getResource("text-editor-view.fxml"));
+        Scene scene = null;
+        if (!isRunningTest) scene = new Scene(fxmlLoader.load(), 800, 600);
+        if (!isRunningTest) stage.setTitle("My Text Editor v0.1 by Zsolt Harmath");
+        if (!isRunningTest) stage.setScene(scene);
+        if (!isRunningTest) stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        if (!isRunningTest) launch();
     }
 }
