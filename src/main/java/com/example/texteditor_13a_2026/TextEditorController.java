@@ -24,6 +24,8 @@ public class TextEditorController {
     public void handleNewMenuClick(ActionEvent actionEvent) {
         // TODO - unsaved previous text?
         if (!isRunningTest) textArea.setText("");
+
+
     }
 
     public void handleOpenMenuClick(ActionEvent actionEvent) throws IOException {
@@ -32,14 +34,14 @@ public class TextEditorController {
         openDialog.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("All files", "*.*"));
         File file = null;
         if (!isRunningTest) file = openDialog.showOpenDialog(TextEditorApplication.scene.getWindow());
-        if (!isRunningTest && file.exists()) {
-            filename = file.getName();
-            filepath = file.getPath();
-            System.out.println("filepath: "+filepath);
-            System.out.println("filename: "+filename);
-
-            String content = Files.readString(file.toPath());
-            textArea.setText(content);
+        if (isRunningTest || (!isRunningTest && file!=null && file.exists()) ) {
+            if (!isRunningTest) filename = file.getName();
+            if (!isRunningTest) filepath = file.getPath();
+            //System.out.println("filepath: "+filepath);
+            //System.out.println("filename: "+filename);
+            String content = null;
+            if (!isRunningTest) content = Files.readString(file.toPath());
+            if (!isRunningTest) textArea.setText(content);
         }
     }
 
@@ -54,7 +56,7 @@ public class TextEditorController {
         saveDialog.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("All files", "*.*"));
         File file = null;
         if (!isRunningTest) file = saveDialog.showSaveDialog(TextEditorApplication.scene.getWindow());
-        if (!isRunningTest) {
+        if (!isRunningTest && file!=null) {
             filename = file.getName();
             filepath = file.getPath();
             System.out.println("filepath: "+filepath);
