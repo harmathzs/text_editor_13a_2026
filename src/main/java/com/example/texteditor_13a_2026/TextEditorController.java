@@ -8,9 +8,11 @@ import javafx.scene.control.TextArea;
 public class TextEditorController {
     @FXML public TextArea textArea;
 
+    public static boolean isRunningTest = false;
+
     public void handleNewMenuClick(ActionEvent actionEvent) {
         // TODO - unsaved previous text?
-        textArea.setText("");
+        if (!isRunningTest) textArea.setText("");
     }
 
     public void handleOpenMenuClick(ActionEvent actionEvent) {

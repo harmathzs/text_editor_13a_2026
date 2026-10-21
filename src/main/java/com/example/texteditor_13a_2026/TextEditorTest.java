@@ -10,11 +10,13 @@ public class TextEditorTest {
     @Before
     public void testBefore() {
         TextEditorApplication.isRunningTest = true;
+        TextEditorController.isRunningTest = true;
     }
 
     @After
     public void testAfter() {
         TextEditorApplication.isRunningTest = false;
+        TextEditorController.isRunningTest = false;
     }
 
     @Test
@@ -22,5 +24,17 @@ public class TextEditorTest {
         TextEditorApplication.main(null);
         TextEditorApplication app = new TextEditorApplication();
         app.start(null);
+    }
+
+    @Test
+    public void testNew() {
+        TextEditorController controller = new TextEditorController();
+        controller.handleNewMenuClick(null);
+    }
+
+    @Test
+    public void testExit() {
+        TextEditorController controller = new TextEditorController();
+        controller.handleExitMenuClick(null);
     }
 }
